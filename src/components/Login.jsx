@@ -34,7 +34,7 @@ const Login = ({socket}) => {
                         </div>
                         <div className="py-2">
                             <label className='form-lable' htmlFor="username">Name</label>
-                            <input  className='form-control' type="text" name='username' id='username' value={username} onChange={(e)=> setUsername(e.target.value)} />
+                            <input required className='form-control' type="text" name='username' id='username' value={username} onChange={(e)=> setUsername(e.target.value)} />
                         </div>
                         <div className="py-2">
                             <label className='form-lable' htmlFor="chat">Chat ID</label>

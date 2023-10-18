@@ -27,7 +27,7 @@ const Chat = () => {
         if (message !== '') {
             await socket.emit('message', data)
             setMessageList([...messageList, data])
-            sendMessage('')
+            setMessage('')
         } else {
             toast.error('can not send empty message',{position:'top-center',theme:'dark'})
         }
