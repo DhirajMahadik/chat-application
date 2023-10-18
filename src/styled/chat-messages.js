@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 
 const ChatMessages = styled.div`
- height: 82vh;
- overflow: auto;
+.scroll{
+    height: 82vh;
+}
+ 
 .message{
     width: 75%;
     .content{

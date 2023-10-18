@@ -7,16 +7,14 @@ import { toast ,ToastContainer} from 'react-toastify'
 const Login = ({socket}) => {
 
     const [username, setUsername] = useState('')
-    const [chat, setChat] = useState('')
  
-    const {setUser,setIsLogin, setCurrentChat,setLoginModal} = useContext(Context)
+    const {setUser,setIsLogin,setLoginModal} = useContext(Context)
 
     const SignInHandler = (e) => {
         e.preventDefault()
         if(username !== ''){
-            socket.emit('join',chat)
+            socket.emit('join')
             setUser(username)
-            setCurrentChat(chat)
             setIsLogin(true)
         }else{
             toast.error('Name required',{position:'top-left', theme:'light'})
@@ -33,12 +31,8 @@ const Login = ({socket}) => {
                         <div className="d-flex justify-content-center py-2">
                         </div>
                         <div className="py-2">
-                            <label className='form-lable' htmlFor="username">Name</label>
-                            <input required className='form-control' type="text" name='username' id='username' value={username} onChange={(e)=> setUsername(e.target.value)} />
-                        </div>
-                        <div className="py-2">
-                            <label className='form-lable' htmlFor="chat">Chat ID</label>
-                            <input required className='form-control' type="text" name='chat' id='chat' value={chat} onChange={(e)=> setChat(e.target.value)} />
+                            {/* <label className='form-lable' htmlFor="username">Name</label> */}
+                            <input required placeholder='Enter your name' className='form-control' type="text" name='username' id='username' value={username} onChange={(e)=> setUsername(e.target.value)} />
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center py-2">
                             <button type="submit" className='btn btn-success my-2' > Sing IN</button>

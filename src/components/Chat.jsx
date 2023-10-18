@@ -5,6 +5,7 @@ import Context from '../context/Context'
 import io from 'socket.io-client'
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import ScrollToBottom from 'react-scroll-to-bottom'
 
 const socket = io.connect(process.env.REACT_APP_URL)
 
@@ -34,7 +35,6 @@ const Chat = () => {
     }
 
     useEffect(() => {
-        console.log('receiving...')
         socket.on('receive', (data) => {
             setMessageList([...messageList, data])
         })
@@ -49,6 +49,7 @@ const Chat = () => {
                 <div className='d-flex text-light align-items-center'> <BsFillPersonFill color='#fff' size={20} className='mx-2' /> {user}</div>
             </div>
             <ChatMessages className="d-flex flex-column">
+                <ScrollToBottom className='scroll'>
                 {
                     messageList.map((element,index) => {
                         return <div key={index} className={`d-flex ${user === element.user ? "justify-content-end" : ""}`}>
@@ -62,6 +63,7 @@ const Chat = () => {
                         </div>
                     })
                 }
+                </ScrollToBottom>
             </ChatMessages>
             <div className="d-flex  py-3  my-2 align-items-center fixed-bottom">
                 <input className='form-control  mx-2' type="text" placeholder='Write a message' value={message} onChange={(e) => setMessage(e.target.value)} />
