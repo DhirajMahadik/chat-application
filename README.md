@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-BACKEND OF THIS APPLICATIN 👉 https://github.com/DhirajMahadik/todo_backend.git
+BACKEND OF THIS APPLICATION 👉 https://github.com/DhirajMahadik/todo_backend.git
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
