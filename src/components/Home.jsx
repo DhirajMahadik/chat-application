@@ -5,8 +5,8 @@ import io from 'socket.io-client'
 import Chat from "./Chat"
 
 const socket = io.connect(process.env.REACT_APP_URL,{
-    path: '/socket.io',
-      transports: ['websocket'],
+      path: '/socket.io',
+      transports: ['websocket', 'polling'],
       secure: true
  })
 
