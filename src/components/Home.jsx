@@ -4,7 +4,9 @@ import Login from "../components/Login"
 import io from 'socket.io-client'
 import Chat from "./Chat"
 
-const socket = io.connect(process.env.REACT_APP_URL)
+const socket = io.connect(process.env.REACT_APP_URL,{
+    "transports": ['websocket']
+ })
 
 const Home = () => {
 
