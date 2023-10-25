@@ -7,7 +7,12 @@ import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ScrollToBottom from 'react-scroll-to-bottom'
 
-const socket = io.connect(process.env.REACT_APP_URL)
+
+
+const socket = io(process.env.REACT_APP_URL,{
+    withCredentials: true,
+    transports:['websocket']
+})
 
 const Chat = () => {
 
@@ -42,7 +47,7 @@ const Chat = () => {
     }, [messageList,socket]);
 
     return (
-        <div className='bg-secondary vh-100'>
+        <div className='bg-secondary vh-100     '>
             <ToastContainer autoClose={1500}/>
             <div className="d-flex px-3 py-2 bg-dark justify-content-between align-items-center">
                 <span className='mx-2 fw-bold text-light fst-italic fs-5'>D/<span className='text-danger '>Chat...</span></span>

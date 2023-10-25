@@ -35,7 +35,7 @@ const Login = ({socket}) => {
                             <input required placeholder='Enter your name' className='form-control' type="text" name='username' id='username' value={username} onChange={(e)=> setUsername(e.target.value)} />
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-center py-2">
-                            <button type="submit" className='btn btn-success my-2' > Sing IN</button>
+                            <button type="submit" className='btn btn-success my-2' >JOIN</button>
                         </div>
                     </form>
                 </div>
