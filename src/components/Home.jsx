@@ -4,8 +4,10 @@ import Login from "../components/Login"
 import io from 'socket.io-client'
 import Chat from "./Chat"
 
-const socket = io.connect(process.env.REACT_APP_URL)
-
+const socket = io(process.env.REACT_APP_URL,{
+    withCredentials: true,
+    transports:['websocket','polling']
+})
 
 const Home = () => {
 
@@ -14,7 +16,7 @@ const Home = () => {
     return (
         <>
             {!isLogin && <Login socket={socket} />}
-            {isLogin && <Chat />}
+            {isLogin && <Chat  socket={socket}/>}
         </>
     )
 }

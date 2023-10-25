@@ -2,19 +2,19 @@ import { BsFillPersonFill, BsSendFill } from 'react-icons/bs'
 import ChatMessages from '../styled/chat-messages'
 import { useContext, useEffect, useState } from 'react'
 import Context from '../context/Context'
-import io from 'socket.io-client'
+// import io from 'socket.io-client'
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ScrollToBottom from 'react-scroll-to-bottom'
 
 
 
-const socket = io(process.env.REACT_APP_URL,{
-    withCredentials: true,
-    transports:['websocket']
-})
+// const socket = io(process.env.REACT_APP_URL,{
+//     withCredentials: true,
+//     transports:['websocket','polling']
+// })
 
-const Chat = () => {
+const Chat = ({socket}) => {
 
     const { user, currentChat } = useContext(Context)
 
